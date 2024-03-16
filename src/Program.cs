@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Resx
 {
@@ -15,14 +15,7 @@ namespace Resx
             {
                 names.Add(resource.Split("@")[0]);
                 paths.Add(resource.Split("@")[1]);
-                try
-                {
-                    content += $"   <data name=\"" + names[index] + "\" type=\"System.Resources.ResXFileRef, System.Windows.Forms\">\n        <value>" + paths[index] + ";System.Drawing.Bitmap, System.Drawing</value>\n    </data>\n";
-                }
-                catch(IndexOutOfRangeException)
-                {
-                    Console.WriteLine("Please provide arguments for resources and seperate the name and filepath with an @ symbol");
-                }
+                content += $"    <data name=\"" + names[index] + "\" type=\"System.Resources.ResXFileRef, System.Windows.Forms\">\n        <value>" + paths[index] + ";System.Drawing.Bitmap, System.Drawing</value>\n    </data>\n";
                 index++;    
             }
             content += "</root>";
